@@ -3,10 +3,10 @@ import streamlit as st
 #import bidapp.user.user
 import user.user
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-import bidapp.Connector.connector
+import Connector.connector
 import datetime
 from streamlit_option_menu import option_menu
-from bidapp.Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc
+from Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc
 import pandas as pd
 
 

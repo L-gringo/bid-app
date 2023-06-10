@@ -1,8 +1,8 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from bidapp.calculenchere.calculenchere import calcul_marge
-from bidapp.streamlitdemo.database import  update_marge, insert_marge_base
-from bidapp.streamlitdemo.pandastest import  select_affichage_func
+from calculenchere.calculenchere import calcul_marge
+from streamlitdemo.database import  update_marge, insert_marge_base
+from streamlitdemo.pandastest import  select_affichage_func
 
 def menu_generer_marge(Options_Menu,basename,field_Names1,filename,path,exchangerate):
     if Options_Menu=="Generer Marge":

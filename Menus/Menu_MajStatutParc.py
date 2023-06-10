@@ -1,6 +1,6 @@
 import streamlit as st
-from bidapp.streamlitdemo.database import  update_db
-from bidapp.streamlitdemo.pandastest import select_affichage_func
+from streamlitdemo.database import  update_db
+from streamlitdemo.pandastest import select_affichage_func
 
 
 def menu_maj_statut_parc(Options_Menu,basename,field_Names1,filename,path,user1):

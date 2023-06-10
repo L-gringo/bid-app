@@ -1,7 +1,7 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from bidapp.calculenchere.calculenchere import calcul_enchere
-from bidapp.streamlitdemo.database import  insert_dataenchere
+from calculenchere.calculenchere import calcul_enchere
+from streamlitdemo.database import  insert_dataenchere
 
 def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
        

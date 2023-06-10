@@ -1,6 +1,6 @@
 import pickle
 from pathlib import Path
-from bidapp.streamlitdemo.database import fetch_data
+from streamlitdemo.database import fetch_data
 
 def connect(basename):
 

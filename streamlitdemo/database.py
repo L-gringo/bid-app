@@ -1,7 +1,7 @@
 from deta import Deta
 import datetime
 import streamlit_authenticator as stauth
-from bidapp.streamlitdemo.generatecsv import gencsv
+from streamlitdemo.generatecsv import gencsv
 
 DETA_KEY="a0awy5axjcn_kq6uEzReYznKn68FiTRJWfnFEJWPKk95"
 

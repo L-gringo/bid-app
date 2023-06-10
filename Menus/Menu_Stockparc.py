@@ -1,7 +1,7 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from bidapp.streamlitdemo.pandastest import select_affichage_func
-from bidapp.streamlitdemo.database import delete_items
+from streamlitdemo.pandastest import select_affichage_func
+from streamlitdemo.database import delete_items
 
 def menu_stock_parc(Options_Menu,basename,field_Names1,filename,path):
     if Options_Menu=="Stock Parc":

@@ -1,5 +1,5 @@
 import streamlit as st
-from bidapp.streamlitdemo.database import insert_datastock
+from streamlitdemo.database import insert_datastock
 
 def menu_ajout_nouvel_achat(Options_Menu,user1,ctkeystr):
 
