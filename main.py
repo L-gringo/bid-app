@@ -2,7 +2,7 @@ import streamlit_authenticator as stauth
 import streamlit as st
 from bidapp.user.user import user
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from bidapp.Connector.connector import connect
+import bidapp.Connector.connector
 import datetime
 from streamlit_option_menu import option_menu
 from bidapp.Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc
@@ -16,7 +16,7 @@ def main():
     ct=datetime.datetime.now()
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 
-    credentials= connect("Credentials")
+    credentials= bidapp.Connector.connector.connect("Credentials")
     stockcsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Stock.csv"
     historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
     margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
