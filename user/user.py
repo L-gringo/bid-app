@@ -1,5 +1,5 @@
 #class qui définit un objet utilisateur
-from bidapp.model.model import model
+from model.model import model
 class user:
     def __init__(self, username):
         
