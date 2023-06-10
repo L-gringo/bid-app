@@ -3,6 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#pyvenv
+pyvenv.cfg
+
+#notebook.d and pydek
+
+etc/jupyter/nbconfig/notebook.d
+share/jupyter/nbextensions/pydeck
+
 #pickle file
 *.pkl
 
