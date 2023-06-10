@@ -1,6 +1,7 @@
 import streamlit_authenticator as stauth
 import streamlit as st
-import bidapp.user.user
+#import bidapp.user.user
+import user.user
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 import bidapp.Connector.connector
 import datetime
