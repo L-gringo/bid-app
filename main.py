@@ -18,9 +18,14 @@ def main():
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 
     credentials= Connector.connector.connect("Credentials")
-    stockcsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Stock.csv"
+    #stockcsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Stock.csv"
+    #historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
+    #margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
+    
+    stockcsvpath="streamlitdemo/Stock.csv"
     historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
     margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
+
     field_Names1=["key",
                 "Fabricant",
                  "Modele", 
