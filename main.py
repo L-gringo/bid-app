@@ -23,8 +23,8 @@ def main():
     #margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
     
     stockcsvpath="streamlitdemo/Stock.csv"
-    historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
-    margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
+    historiccsvpath="streamlitdemo/Historicdataset.csv"
+    margescsvpath="streamlitdemo/Marges.csv"
 
     field_Names1=["key",
                 "Fabricant",
