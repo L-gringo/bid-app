@@ -1,6 +1,6 @@
 import streamlit_authenticator as stauth
 import streamlit as st
-from bidapp.user.user import user
+import bidapp.user.user
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 import bidapp.Connector.connector
 import datetime
@@ -55,7 +55,7 @@ def main():
         authenticator.logout("Logout", "sidebar")
 
         #Logging
-        user1=user(username)
+        user1=bidapp.user.user.user(username)
         
         #Menu
         
