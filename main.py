@@ -17,7 +17,7 @@ def main():
     ct=datetime.datetime.now()
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 
-    credentials= bidapp.Connector.connector.connect("Credentials")
+    credentials= Connector.connector.connect("Credentials")
     stockcsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Stock.csv"
     historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
     margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
@@ -56,7 +56,7 @@ def main():
         authenticator.logout("Logout", "sidebar")
 
         #Logging
-        user1=bidapp.user.user.user(username)
+        user1=user.user.user(username)
         
         #Menu
         
