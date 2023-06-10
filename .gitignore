@@ -6,6 +6,9 @@ __pycache__/
 #pickle file
 *.pkl
 
+#main record
+main_record.py
+
 # C extensions
 *.so
 
