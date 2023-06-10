@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np 
-from bidapp.streamlitdemo.generatecsv import gencsv
-from bidapp.streamlitdemo.database import insert_cred, insert_dataenchere, insert_datastock, fetch_data, update_db, update_marge, insert_marge_base
+from streamlitdemo.generatecsv import gencsv
+from streamlitdemo.database import insert_cred, insert_dataenchere, insert_datastock, fetch_data, update_db, update_marge, insert_marge_base
 #import streamlit_pandas as sp
 
 def load_data(path):
