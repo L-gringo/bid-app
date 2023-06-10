@@ -1,6 +1,6 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from CalculEnchere.streamlitdemo.pandastest import select_affichage_func
+from bidapp.streamlitdemo.pandastest import select_affichage_func
 
 
 def menu_recap_marges(Options_Menu,basename,filename,path):

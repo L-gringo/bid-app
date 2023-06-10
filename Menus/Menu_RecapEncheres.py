@@ -1,7 +1,7 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-from CalculEnchere.streamlitdemo.pandastest import  select_affichage_func
-from CalculEnchere.streamlitdemo.database import delete_items, insert_datastock
+from bidapp.streamlitdemo.pandastest import  select_affichage_func
+from bidapp.streamlitdemo.database import delete_items, insert_datastock
 
 
 def menu_recap_encheres(Options_Menu,path,basename,filename,user1,ctkeystr):
