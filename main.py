@@ -1,9 +1,9 @@
 import streamlit_authenticator as stauth
 import streamlit as st
 #import bidapp.user.user
-import user.user
+from user.user import user
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
-import Connector.connector
+from Connector.connector import connect
 import datetime
 from streamlit_option_menu import option_menu
 from Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc
@@ -17,33 +17,11 @@ def main():
     ct=datetime.datetime.now()
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 
-    credentials= Connector.connector.connect("Credentials")
-    #stockcsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Stock.csv"
-    #historiccsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Historicdataset.csv"
-    #margescsvpath="C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\CalculEnchere\\streamlitdemo\\Marges.csv"
-    
-    stockcsvpath="streamlitdemo/Stock.csv"
-    historiccsvpath="streamlitdemo/Historicdataset.csv"
-    margescsvpath="streamlitdemo/Marges.csv"
-
-    field_Names1=["key",
-                "Fabricant",
-                 "Modele", 
-                 "date sortie",
-                 "date achat",
-                 "frais transport",
-                 "fret",
-                 "prix achat",
-                 "prix de vente previsionnel",
-                 "prix de vente final",
-                 "reparations",
-                 "marge",
-                 "statut"]
+    credentials= connect("Credentials")
+   
     
     exchangerate=0.932
 
-
-    #authenticator= stauth.Authenticate(names,usernames,hashed_passwords, "cookies", "abcdef", cookie_expiry_days=7)
     #Authentification à l'appli
     authenticator= stauth.Authenticate(credentials, "cookies", "abcdef", cookie_expiry_days=7)
 
@@ -61,12 +39,11 @@ def main():
         authenticator.logout("Logout", "sidebar")
 
         #Logging
-        user1=user.user.user(username)
+        user1=user(username)
         
         #Menu
         
             #Informations sur le prix de vente final, le fret, la marge visée, le nom du modèle, la date de sortie 
-        #st.title(":green[RECAP DES ENCHERES]")
         
         #barre latérale avec le menu
         with st.sidebar:
