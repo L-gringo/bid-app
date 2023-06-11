@@ -3,7 +3,7 @@ from streamlitdemo.database import  update_db
 from streamlitdemo.pandastest import select_affichage_func
 
 
-def menu_maj_statut_parc(Options_Menu,basename,field_Names1,filename,path,user1):
+def menu_maj_statut_parc(Options_Menu,basename,user1):
     if Options_Menu=="MAJ Statut Parc":
 
             #st.title("MAJ Statut Parc")
@@ -18,7 +18,7 @@ def menu_maj_statut_parc(Options_Menu,basename,field_Names1,filename,path,user1)
                 st.session_state.MAJ=True
 
             # génère un fichier csv en guise de dataset pour l'affichage du tableau
-            dataframe_edit=select_affichage_func(field_Names1,basename,filename,path,)
+            dataframe_edit=select_affichage_func(basename)
 
             update_button=st.button("Mettre a jour",on_click=callback)
 

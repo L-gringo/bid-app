@@ -4,7 +4,7 @@ from streamlitdemo.pandastest import  select_affichage_func
 from streamlitdemo.database import delete_items, insert_datastock
 
 
-def menu_recap_encheres(Options_Menu,path,basename,filename,user1,ctkeystr):
+def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
 
     if Options_Menu=="Recap Encheres":
            
@@ -13,7 +13,7 @@ def menu_recap_encheres(Options_Menu,path,basename,filename,user1,ctkeystr):
             #st.title("Recapitulatif des encheres")
             st.markdown("<h1 style='text-align: center; color: grey;'>Recapitulatif des encheres</h1>",unsafe_allow_html=True)
             # génère un fichier csv en guise de dataset pour l'affichage du tableau
-            field_Names=["key","Fabricant","Date Enchere", "Date sortie", "Modele", "Montant Enchere"]
+            #field_Names=["key","Fabricant","Date Enchere", "Date sortie", "Modele", "Montant Enchere"]
 
             if "MAJ1" not in st.session_state:
                 st.session_state.MAJ1=False
@@ -24,7 +24,7 @@ def menu_recap_encheres(Options_Menu,path,basename,filename,user1,ctkeystr):
                 st.session_state.MAJ1=True
 
 
-            dataframe_edit=select_affichage_func(field_Names,basename,filename,path)
+            dataframe_edit=select_affichage_func(basename)
             
             supp_button= st.button("Supprimer")
             

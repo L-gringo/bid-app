@@ -3,7 +3,7 @@ import streamlit as st
 from streamlitdemo.pandastest import select_affichage_func
 
 
-def menu_recap_marges(Options_Menu,basename,filename,path):
+def menu_recap_marges(Options_Menu,basename):
     
     if Options_Menu=="Recap Des Marges":
                 
@@ -20,7 +20,7 @@ def menu_recap_marges(Options_Menu,basename,filename,path):
                                "marge",
                                ]
                 #récupérer les données de la base marge pour générer un dataset et l'afficher avec une colonne de selection de ligne
-                dataframe_edit2=select_affichage_func(field_Names,basename,filename,path)
+                dataframe_edit2=select_affichage_func(basename)
 
                 show_benefits_button=st.button ("Faire la somme")
 

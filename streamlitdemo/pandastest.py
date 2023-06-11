@@ -1,8 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np 
-from streamlitdemo.generatecsv import gencsv
-from streamlitdemo.database import insert_cred, insert_dataenchere, insert_datastock, fetch_data, update_db, update_marge, insert_marge_base
+from streamlitdemo.database import fetch_data
 #import streamlit_pandas as sp
 
 def load_data(path):
@@ -39,26 +38,19 @@ def dataframe_multiple_selections(dataframe):
     selected_rows = dataframe[edited_df.Select]
     return selected_rows
 
-def openstock_csv(dataframe):
-    pass
 
-def select_affichage_func(field_Names,database,filename,path,):
-     
-     field_Names=field_Names
+def select_affichage_func(database):
             
      datas=fetch_data(database)
-     gencsv(filename,datas,field_Names)
-     datasetpath=path
-     df=pd.read_csv(datasetpath)
+     df=pd.DataFrame(datas)
        
      # afficher le tableau avec la case selection 
      dataframe_edit= dataframe_with_selections(df)
      return dataframe_edit
 
-def simple_affichage_func(field_Names, basename, filename, path):
+def simple_affichage_func(basename):
     
-    field_Names= field_Names
     datas=fetch_data(basename)
-    gencsv(filename,datas,field_Names)
-    datasetpath=path
-    load_data(datasetpath)
+    df=pd.DataFrame(datas)
+    st.dataframe(df)
+

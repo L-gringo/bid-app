@@ -84,7 +84,7 @@ def main():
 
         #Option qui affiche le récap des enchères calculées
     
-        Menu_RecapEncheres.menu_recap_encheres(Options_Menu,historiccsvpath,"History2","Historicdataset.csv", user1,ctkeystr)
+        Menu_RecapEncheres.menu_recap_encheres(Options_Menu,"History2", user1,ctkeystr)
            
         # Option qui permet de rajouter chaque nouvelle achat au stock. Il génère une base de données Stock qui sera ensuite remplie
         #avec les infos du véhicule et des montants prévisionnels pour la vente le fret, etc.
@@ -93,19 +93,19 @@ def main():
     
         # Option pour mettre à jour les informations des véhicules en stock, notamment suite à une vente ou une arrivée de véhicule
 
-        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",field_Names1,"Stock.csv",stockcsvpath,user1) 
+        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",user1) 
 
        #Option pour calculer la marge générée par véhicule 
 
-        Menu_Generermarge.menu_generer_marge(Options_Menu,"Stock",field_Names1,"Stock.csv",stockcsvpath,exchangerate)
+        Menu_Generermarge.menu_generer_marge(Options_Menu,"Stock",exchangerate)
            
             # Actions pour afficher le récap des marges calculées et effectuer des sommes de marges
 
-        Menu_Recapdesmarges.menu_recap_marges(Options_Menu,"Marges","Marges.csv",margescsvpath)
+        Menu_Recapdesmarges.menu_recap_marges(Options_Menu,"Marges")
         
         #Option pour afficher le contenu du stock ainsi que le statut de disponibilité des véhicules
 
-        Menu_Stockparc.menu_stock_parc(Options_Menu,"Stock",field_Names1,"Stock.csv",stockcsvpath)    
+        Menu_Stockparc.menu_stock_parc(Options_Menu,"Stock")    
        
         
 if __name__=="__main__":

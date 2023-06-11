@@ -4,7 +4,7 @@ from calculenchere.calculenchere import calcul_marge
 from streamlitdemo.database import  update_marge, insert_marge_base
 from streamlitdemo.pandastest import  select_affichage_func
 
-def menu_generer_marge(Options_Menu,basename,field_Names1,filename,path,exchangerate):
+def menu_generer_marge(Options_Menu,basename,exchangerate):
     if Options_Menu=="Generer Marge":
             
             #st.title("Calcul de marge")
@@ -16,7 +16,7 @@ def menu_generer_marge(Options_Menu,basename,field_Names1,filename,path,exchange
             #def callback():
               #  st.session_state.marge=True
             
-            dataframe_edit1=select_affichage_func(field_Names1,basename,filename,path)
+            dataframe_edit1=select_affichage_func(basename)
 
             marge_button =st.button("Calculer la marge")
 
