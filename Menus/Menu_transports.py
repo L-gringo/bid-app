@@ -55,9 +55,9 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
 
             frame=dataframe_edit[0]
-            indice=dataframe_edit[1]
-            value=frame.iloc[indice]["Ville"]
-            key= frame.iloc[indice]["key"]
+            indice=dataframe_edit[1][0]
+            value=frame.iloc[indice]["key"]
+
             st.write(value)
         
             with st.form(key="transpform1"):
@@ -66,7 +66,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
                submit_button=st.form_submit_button("Modifier")
                 
             if submit_button:
-                update_transp_db(basename,city_input,transprice,keyval=key)
+                update_transp_db(basename,city_input,transprice,keyval=value)
                 st.session_state.MODT=False
 
 
