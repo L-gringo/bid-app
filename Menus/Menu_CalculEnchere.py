@@ -49,6 +49,6 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                     st.markdown(f"la valeur maximale de cette enchère pour ce modèle {modele.name} {modele.year} est de : {value} dollars")
         
                     #Remplit la base de données cible avec les infos du modèles (Fabricant, nom, année de sortie), le montant de l'enchère et la date de calcul de l'enchère
-                    insert_dataenchere("History2", ctkeystr, model_Manufacturer_input, model_Name_input, modele_year_input, value, exchangerate, ctstr)
+                    insert_dataenchere("History2", ctkeystr, model_Manufacturer_input, model_Name_input, modele_year_input, value, exchange_input, ctstr)
                     
                     
