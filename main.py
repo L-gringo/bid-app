@@ -6,7 +6,7 @@ from user.user import user
 from Connector.connector import connect
 import datetime
 from streamlit_option_menu import option_menu
-from Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc
+from Menus import Menu_CalculEnchere, Menu_AjoutNouvelAchat, Menu_RecapEncheres, Menu_MajStatutParc, Menu_Generermarge, Menu_Recapdesmarges, Menu_Stockparc, Menu_transports
 import pandas as pd
 
 
@@ -50,8 +50,8 @@ def main():
             st.header (f"Bienvenue {name}")
 
             Options_Menu= option_menu(menu_title=None, 
-                         options=["Calcul Enchere", "Ajout Nouvel Achat","Recap Encheres","MAJ Statut Parc", "Generer Marge","Recap Des Marges","Stock Parc"],
-                         icons=["calculator","cart-plus","table","check-all","coin","currency-dollar","database-fill"],
+                         options=["Calcul Enchere", "Ajout Nouvel Achat","Recap Encheres","MAJ Statut Parc", "Generer Marge","Recap Des Marges", "Frais Transport","Stock Parc"],
+                         icons=["calculator","cart-plus","table","check-all","coin","currency-dollar","truck","database-fill"],
                          default_index=0,
                          orientation="vertical")
         
@@ -79,6 +79,10 @@ def main():
             # Actions pour afficher le récap des marges calculées et effectuer des sommes de marges
 
         Menu_Recapdesmarges.menu_recap_marges(Options_Menu,"Marges")
+
+        #Option pour définir ou voir les frais de transport
+
+        Menu_transports.menu_transports(Options_Menu,"Transports",ctkeystr)
         
         #Option pour afficher le contenu du stock ainsi que le statut de disponibilité des véhicules
 

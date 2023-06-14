@@ -12,6 +12,22 @@ def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere, exc
     db = deta.Base(basename)
     db.put({"key":key, "Fabricant":manufacturer, "Modele":model, "Date sortie":modeldate, "Montant Enchere":enchere, "Taux de Change":exchangerate,"Date Enchere":currday})
 
+
+def insert_transp_db(basename,key,town,price):
+    db=deta.Base(basename)
+    db.put({"key":key, "Ville":town, "Prix":price})
+    
+
+
+def update_transp_db(basename,price,keyval):
+    
+    db=deta.Base(basename)
+    
+    updates={"Prix":price}
+
+    db.update(updates, key=keyval)
+
+
 def insert_datastock(basename,key, manufacturer, model, modeldate,buydate, selldate, buyprice,transp,salepriceprev,salepriceend,fret,repair,marge, exchange,statut):
 
     db = deta.Base(basename)
@@ -97,12 +113,3 @@ def delete_items(basename, keyval):
     db=deta.Base(basename)
     db.delete(key=keyval)
     
-#value="2023-06-07-00-27-09"
-#update_db("Stock",value,"MAZDA","Aoura","07 June  2023","2008","15470","78548997","108900000","78459","vendu")
-
-#datas= fetch_data("History1")
-#gencsv("Historicenchere.csv", datas,["key","Date Enchere", "Date sortie", "Modele", "Montant Enchere"])
-
-#print(ct)
-#insert_data("History1","Honda","CRV",2008,10000,ctstr)
-#insert_cred("Credbase","Mannou","Freaky1","sato")
