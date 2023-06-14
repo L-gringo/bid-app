@@ -44,9 +44,9 @@ def menu_transports(Options_menu, basename,ctkeystr):
             indice=dataframe_edit[1]
 
             for i in indice:
-                
+                line=frame.iloc[i]
                 with st.form(key="transpform1"):
-                    city_input=st.text_input("Ville:",str(value=frame.iloc[i]["Ville"]))
+                    city_input=st.text_input("Ville:",value=line["Ville"])
                     transprice=st.number_input("Entrer le prix")
                     submit_button=st.form_submit_button("Modifier")
                 
