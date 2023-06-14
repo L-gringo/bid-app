@@ -28,7 +28,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
                 if submit_button:
                     insert_transp_db(basename,ctkeystr,city_input,transprice)
-                    st.session_state.MAJT=False
+        st.session_state.MAJT=False
         
 
         if modif_button or st.session_state.MAJT:
