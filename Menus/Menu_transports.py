@@ -12,12 +12,18 @@ def menu_transports(Options_menu, basename,ctkeystr):
         if "MAJT" not in st.session_state:
             st.session_state.MAJT=False
         
+        if "MODT" not in st.session_state:
+            st.session_state.MODT=False
+        
         def callback():
             st.session_state.MAJT=True
+
+        def callback1():
+            st.session_state.MODT=True
         
         add_button=st.button("Ajouter une ville", on_click=callback)
 
-        modif_button=st.button("Modifier", on_click=callback)
+        modif_button=st.button("Modifier", on_click=callback1)
 
         if add_button or st.session_state.MAJT:
 
@@ -28,10 +34,11 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
                 if submit_button:
                     insert_transp_db(basename,ctkeystr,city_input,transprice)
-        st.session_state.MAJT=False
+        
+                    st.session_state.MAJT=False
         
 
-        if modif_button or st.session_state.MAJT:
+        if modif_button or st.session_state.MODT:
 
             frame=dataframe_edit[0]
             indice=dataframe_edit[1]
@@ -43,6 +50,6 @@ def menu_transports(Options_menu, basename,ctkeystr):
                     transprice=st.number_input("Entrer le prix")
                     submit_button=st.form_submit_button("Modifier")
                 
-                if (submit_button):
+                if submit_button:
                     update_transp_db(basename,transprice,key=frame.iloc[i]["key"])
 
