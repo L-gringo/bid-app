@@ -49,5 +49,5 @@ def menu_transports(Options_menu, basename,ctkeystr):
                submit_button=st.form_submit_button("Modifier")
                 
             if submit_button:
-                update_transp_db(basename,transprice,key=frame.iloc[indice]["key"])
+                update_transp_db(basename,city_input,transprice,key=frame.iloc[indice]["key"])
                 st.session_state.MODT=False

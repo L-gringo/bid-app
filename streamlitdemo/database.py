@@ -19,11 +19,11 @@ def insert_transp_db(basename,key,town,price):
     
 
 
-def update_transp_db(basename,price,keyval):
+def update_transp_db(basename,city,price,keyval):
     
     db=deta.Base(basename)
     
-    updates={"Prix":price}
+    updates={"Ville":city,"Prix":price}
 
     db.update(updates, key=keyval)
 
