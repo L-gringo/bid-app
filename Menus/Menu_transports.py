@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlitdemo.database import  insert_transp_db, update_transp_db
+from streamlitdemo.database import  insert_transp_db, update_transp_db, delete_items
 from streamlitdemo.pandastest import select_affichage_func
 
 def menu_transports(Options_menu, basename,ctkeystr):
@@ -15,15 +15,24 @@ def menu_transports(Options_menu, basename,ctkeystr):
         if "MODT" not in st.session_state:
             st.session_state.MODT=False
         
+        if "SUPPT" not in st.session_state:
+            st.session_state.MODT=False
+        
         def callback():
             st.session_state.MAJT=True
 
         def callback1():
             st.session_state.MODT=True
         
+
+        def callback2():
+            st.session_state.SUPPT=True
+
         add_button=st.button("Ajouter une ville", on_click=callback)
 
         modif_button=st.button("Modifier", on_click=callback1)
+
+        supp_button=st.button("Supprimer", on_click=callback2)
 
         if add_button or st.session_state.MAJT:
 
@@ -43,7 +52,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
             frame=dataframe_edit[0]
             indice=dataframe_edit[1]
             line=frame.iloc[indice]
-            key=frame.iloc[indice]["key"]
+            key=line["key"]
             with st.form(key="transpform1"):
                city_input=st.text_input("Ville:",value=str(line["Ville"]))
                transprice=st.number_input("Entrer le prix")
@@ -52,3 +61,16 @@ def menu_transports(Options_menu, basename,ctkeystr):
             if submit_button:
                 update_transp_db(basename,city_input,transprice,keyval=key)
                 st.session_state.MODT=False
+
+
+        if supp_button or st.session_state.SUPPT:
+            
+            frame=dataframe_edit[0]
+            indice=dataframe_edit[1]
+
+            for i in indice:
+                line=frame.iloc[i]
+                key=line["key"]
+                delete_items(basename,keyval=key)
+            
+            st.session_state.SUPPT=False
