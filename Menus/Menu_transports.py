@@ -45,7 +45,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
             for i in indice:
                 
-                with st.form("transpform"):
+                with st.form("transpform1"):
                     city_input=st.text_input("Ville:",str(value=frame.iloc[i]["Ville"]))
                     transprice=st.number_input("Entrer le prix")
                     submit_button=st.form_submit_button("Modifier")
