@@ -24,7 +24,6 @@ def menu_transports(Options_menu, basename,ctkeystr):
         def callback1():
             st.session_state.MODT=True
         
-
         def callback2():
             st.session_state.SUPPT=True
 
@@ -33,6 +32,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
         modif_button=st.button("Modifier", on_click=callback1)
 
         supp_button=st.button("Supprimer", on_click=callback2)
+
 
         if add_button or st.session_state.MAJT:
 
@@ -57,7 +57,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
             st.write(value)
         
             with st.form(key="transpform1"):
-               city_input=st.text_input("Ville :",value=value)
+               city_input=st.text_input("Ville :")
                transprice=st.number_input("Entrer le prix")
                submit_button=st.form_submit_button("Modifier")
                 
@@ -76,4 +76,4 @@ def menu_transports(Options_menu, basename,ctkeystr):
                 key=line["key"]
                 delete_items(basename,keyval=key)
             
-            st.session_state.SUPPT=False
+                st.session_state.SUPPT=False
