@@ -61,7 +61,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
             st.write(value)
         
             with st.form(key="transpform1"):
-               city_input=st.text_input("Ville :")
+               city_input=st.text_input("Entrer le nom du modèle :",value=frame.iloc[indice]["Ville"])
                transprice=st.number_input("Entrer le prix")
                submit_button=st.form_submit_button("Modifier")
                 
