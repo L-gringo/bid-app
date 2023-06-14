@@ -49,6 +49,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
                 if submit_button:
                     insert_transp_db(basename,ctkeystr,city_input,transprice)
                     st.session_state.MAJT=False
+                    st.write("Ville ajoutée")
         
 
         if modif_button or st.session_state.MODT:
@@ -67,6 +68,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
                 
             if submit_button:
                 update_transp_db(basename,city_input,transprice,keyval=value)
+                st.write("Entrée mise à jour")
                 st.session_state.MODT=False
 
 
@@ -79,4 +81,5 @@ def menu_transports(Options_menu, basename,ctkeystr):
                 line=frame.iloc[i]
                 key=line["key"]
                 delete_items(basename,keyval=key)
+                st.write("Entrée supprimée")
                 st.session_state.SUPPT=False
