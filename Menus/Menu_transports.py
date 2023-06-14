@@ -42,14 +42,12 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
             frame=dataframe_edit[0]
             indice=dataframe_edit[1]
-
-            for i in indice:
-                line=frame.iloc[i]
-                with st.form(key="transpform1"):
-                    city_input=st.text_input("Ville:",value=line["Ville"])
-                    transprice=st.number_input("Entrer le prix")
-                    submit_button=st.form_submit_button("Modifier")
+            line=frame.iloc[indice]
+            with st.form(key="transpform1"):
+               city_input=st.text_input("Ville:",value=line["Ville"])
+               transprice=st.number_input("Entrer le prix")
+               submit_button=st.form_submit_button("Modifier")
                 
-                if submit_button:
-                    update_transp_db(basename,transprice,key=frame.iloc[i]["key"])
-
+            if submit_button:
+                update_transp_db(basename,transprice,key=frame.iloc[i]["key"])
+                st.session_state.MODT=False
