@@ -16,7 +16,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
             st.session_state.MODT=False
         
         if "SUPPT" not in st.session_state:
-            st.session_state.MODT=False
+            st.session_state.SUPPT=False
         
 
 
