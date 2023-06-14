@@ -6,18 +6,20 @@ def menu_transports(Options_menu, basename,ctkeystr):
     
     if Options_menu=="Frais Transport":
 
-        dataframe_edit=select_affichage_func(basename)
-        
+        st.markdown("<h1 style='text-align: center; color: grey;'>Frais de Transport</h1>",unsafe_allow_html=True)
 
+        
         if "MAJT" not in st.session_state:
             st.session_state.MAJT=False
-        
+
         if "MODT" not in st.session_state:
             st.session_state.MODT=False
         
         if "SUPPT" not in st.session_state:
             st.session_state.MODT=False
         
+
+
         def callback():
             st.session_state.MAJT=True
 
@@ -27,11 +29,14 @@ def menu_transports(Options_menu, basename,ctkeystr):
         def callback2():
             st.session_state.SUPPT=True
 
+        dataframe_edit=select_affichage_func(basename)
+
         add_button=st.button("Ajouter une ville", on_click=callback)
 
         modif_button=st.button("Modifier", on_click=callback1)
 
         supp_button=st.button("Supprimer", on_click=callback2)
+
 
 
         if add_button or st.session_state.MAJT:
@@ -43,16 +48,15 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
                 if submit_button:
                     insert_transp_db(basename,ctkeystr,city_input,transprice)
-        
                     st.session_state.MAJT=False
         
 
         if modif_button or st.session_state.MODT:
 
+
             frame=dataframe_edit[0]
             indice=dataframe_edit[1]
             value=frame.iloc[indice]["Ville"]
-            
             key= frame.iloc[indice]["key"]
             st.write(value)
         
@@ -75,5 +79,4 @@ def menu_transports(Options_menu, basename,ctkeystr):
                 line=frame.iloc[i]
                 key=line["key"]
                 delete_items(basename,keyval=key)
-            
                 st.session_state.SUPPT=False
