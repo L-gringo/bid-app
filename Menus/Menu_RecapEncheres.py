@@ -50,13 +50,13 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                         modele=str(line["Modele"])
                         annee=int(line["Date sortie"])
                         exchangerate=float(line["Taux de Change"])
-                        
                         st.write(f"Merci de completer le formulaire pour l'insertion dans le stock du modele {modele} {annee}")
                         
                         with st.form(key=f"form{i}"):
                               manufacturer_input= st.text_input("Fabricant", str(line["Fabricant"]))
                               model_input= st.text_input("Modele",str(line["Modele"]))
                               model_year_input=st.number_input("Date sortie",int(line["Date sortie"]))
+                              sell_date_input=st.date_input("Date de vente")
                               buy_date=st.date_input("Entrer la date d'achat")
                               town=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
                               transpfees=user1.transportfees(town)
@@ -78,6 +78,7 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                                              model_input,
                                              model_year_input,
                                              buy_date.strftime("%d %B  %Y"),
+                                             sell_date_input.strftime("%d %B %Y"),
                                              buy_price_input,
                                              transpfees,
                                              sale_price_prev_input,

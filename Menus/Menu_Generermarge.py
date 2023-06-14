@@ -33,7 +33,7 @@ def menu_generer_marge(Options_Menu,basename,exchangerate):
 
                     line=frame1.iloc[i]
                     value1=frame1.iloc[i]["key"]
-                    marge= calcul_marge(line["prix de vente final"],line["frais transport"],line["fret"],line["reparations"], exchangerate)
+                    marge= calcul_marge(line["prix de vente final"],line["frais transport"],line["fret"],line["reparations"], line["Taux de Change"])
                     update_marge("Stock",value1,marge)
 
                     insert_marge_base("Marges", value1, str(line["Fabricant"]), str(line["Modele"]), str(line["date sortie"]), str(line["date achat"]), int(line["prix achat"]), int(line["prix de vente final"]), marge)

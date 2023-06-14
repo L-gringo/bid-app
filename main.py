@@ -70,7 +70,7 @@ def main():
     
         # Option pour mettre à jour les informations des véhicules en stock, notamment suite à une vente ou une arrivée de véhicule
 
-        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",user1,exchangerate) 
+        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",user1) 
 
        #Option pour calculer la marge générée par véhicule 
 

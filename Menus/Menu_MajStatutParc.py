@@ -3,7 +3,7 @@ from streamlitdemo.database import  update_db
 from streamlitdemo.pandastest import select_affichage_func
 
 
-def menu_maj_statut_parc(Options_Menu,basename,user1,exchangerate):
+def menu_maj_statut_parc(Options_Menu,basename,user1):
     if Options_Menu=="MAJ Statut Parc":
 
             #st.title("MAJ Statut Parc")
@@ -33,11 +33,12 @@ def menu_maj_statut_parc(Options_Menu,basename,user1,exchangerate):
                     model_Manufacturer_input1=st.text_input("Entrer le nom du fabricant :",value=frame.iloc[indice]["Fabricant"])
                     model_Name_input1=st.text_input("Entrer le nom du modèle :",value=frame.iloc[indice]["Modele"])
                     modele_year_input1=st.number_input("Entrer la date de sortie du modèle :",value= frame.iloc[indice]["date sortie"], min_value=0)
-                    buy_date1=st.text_input("Entrer la date d'achat",value= frame.iloc[indice]["date achat"])
+                    buy_date1=st.text_input("Date d'achat",value= frame.iloc[indice]["date achat"])
                     buy_price_input1=st.number_input("Entrer le prix d'achat", value= frame.iloc[indice]["prix achat"],min_value=10000)
                     sale_price_prev_input1=st.number_input("Entrer le prix de vente prévisionnel", value= frame.iloc[indice]["prix de vente previsionnel"], min_value=10000)
                     fret_input1=st.number_input("Entrer le prix du fret", value= frame.iloc[indice]["fret"], min_value=0)
-                    exchange_input=st.number_input("Taux de change", value=exchangerate)
+                    exchange_input=st.number_input("Taux de change", value=frame.iloc[indice]["Taux de change"])
+                    sell_date_input=st.text_input("Date de vente",value=frame.iloc[indice]["date vente"])
                     town1=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
                     transpfees1=user1.transportfees(town1)
                     marge_input1=st.number_input("marge", min_value=0)
@@ -54,7 +55,8 @@ def menu_maj_statut_parc(Options_Menu,basename,user1,exchangerate):
                                     model_Manufacturer_input1, 
                                     model_Name_input1, 
                                     modele_year_input1,
-                                    buy_date1, 
+                                    buy_date1,
+                                    sell_date_input, 
                                     transpfees1, 
                                     fret_input1,
                                     buy_price_input1,

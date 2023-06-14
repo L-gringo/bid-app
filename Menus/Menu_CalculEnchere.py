@@ -12,7 +12,7 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
             with st.form(key="form1"):
                 model_Manufacturer_input=st.text_input("Entrer le nom du fabricant :")
                 model_Name_input=st.text_input("Entrer le nom du modèle :")
-                modele_year_input=st.number_input("Entrer la date de sortie du modèle :", min_value=0)
+                modele_year_input=st.number_input("Entrer l'année de sortie du modèle :", min_value=0)
                 sale_price_input=st.number_input("Entrer le prix de vente", min_value=10000)
                 exchange_input=st.number_input("Taux de change", value=exchangerate)
                 fret_input=st.number_input("Entrer le prix du fret", min_value=1000)
@@ -44,11 +44,17 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                     
                     st.markdown(f"le taux de change {currencies[0]}/{currencies[1]} est actuellement de : {exchangerate}")
                     #calcul la valeur de l'enchère e
-                    value=calcul_enchere(modele.sellprice,modele.profit,transpfees,modele.fret,repfees,exchangerate)
+                    value=calcul_enchere(modele.sellprice,modele.profit,transpfees,modele.fret,repfees,exchange_input)
 
                     st.markdown(f"la valeur maximale de cette enchère pour ce modèle {modele.name} {modele.year} est de : {value} dollars")
         
                     #Remplit la base de données cible avec les infos du modèles (Fabricant, nom, année de sortie), le montant de l'enchère et la date de calcul de l'enchère
-                    insert_dataenchere("History2", ctkeystr, model_Manufacturer_input, model_Name_input, modele_year_input, value, exchange_input, ctstr)
+                    insert_dataenchere("History2", 
+                                       ctkeystr, 
+                                       model_Manufacturer_input,
+                                         model_Name_input,
+                                           modele_year_input, 
+                                           value, exchange_input, 
+                                             ctstr)
                     
                     

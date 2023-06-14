@@ -12,7 +12,7 @@ def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere, exc
     db = deta.Base(basename)
     db.put({"key":key, "Fabricant":manufacturer, "Modele":model, "Date sortie":modeldate, "Montant Enchere":enchere, "Taux de Change":exchangerate,"Date Enchere":currday})
 
-def insert_datastock(basename,key, manufacturer, model, modeldate,buydate,buyprice,transp,salepriceprev,salepriceend,fret,repair,marge, exchange,statut):
+def insert_datastock(basename,key, manufacturer, model, modeldate,buydate, selldate, buyprice,transp,salepriceprev,salepriceend,fret,repair,marge, exchange,statut):
 
     db = deta.Base(basename)
     
@@ -22,6 +22,7 @@ def insert_datastock(basename,key, manufacturer, model, modeldate,buydate,buypri
             "Modele":model, 
             "date sortie":modeldate,
               "date achat":buydate,
+              "date vente": selldate,
               "frais transport":transp,
               "fret":fret,
               "marge":marge,
@@ -63,13 +64,14 @@ def fetch_data(basename):
     data=db.fetch()
     return data.items
 
-def update_db(basename, keyval, fab, mod, ds, da, tf, ft, pa, pvf, pvp, rp, exr, mg,stt):
+def update_db(basename, keyval, fab, mod, ds, da, dv, tf, ft, pa, pvf, pvp, rp, exr, mg,stt):
 
     db=deta.Base(basename)
     updates={"Fabricant":fab,
             "Modele":mod, 
             "date sortie":ds,
             "date achat":da,
+            "date vente": dv,
             "frais transport":tf,
             "fret":ft,
             "prix achat":pa,
