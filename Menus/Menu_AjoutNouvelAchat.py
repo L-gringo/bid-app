@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlitdemo.database import insert_datastock
 
-def menu_ajout_nouvel_achat(Options_Menu,user1,ctkeystr):
+def menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr):
 
     if Options_Menu=="Ajout Nouvel Achat":
            
@@ -15,6 +15,7 @@ def menu_ajout_nouvel_achat(Options_Menu,user1,ctkeystr):
                 buy_price_input=st.number_input("Entrer le prix d'achat", min_value=10000)
                 sale_price_prev_input=st.number_input("Entrer le prix de vente prévisionnel", min_value=10000)
                 marge_input=st.number_input("marge", min_value=0)
+                exchange_input=st.number_input("Taux de change", value=exchangerate)
                 fret_input=st.number_input("Entrer le prix du fret", min_value=1000)
                 statuts_input=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"], index=0) 
                 sale_price_final_input=st.number_input("Entrer le prix de vente final", min_value=10000)
@@ -37,5 +38,6 @@ def menu_ajout_nouvel_achat(Options_Menu,user1,ctkeystr):
                                         fret_input,
                                         reparations,
                                         marge_input,
+                                        exchange_input,
                                         statuts_input,
                                         )

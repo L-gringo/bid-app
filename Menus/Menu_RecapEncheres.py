@@ -49,6 +49,7 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                         line=frame2.iloc[i]
                         modele=str(line["Modele"])
                         annee=int(line["Date sortie"])
+                        exchangerate=float(line["Taux de Change"])
                         
                         st.write(f"Merci de completer le formulaire pour l'insertion dans le stock du modele {modele} {annee}")
                         
@@ -61,6 +62,7 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                               transpfees=user1.transportfees(town)
                               buy_price_input=st.number_input("Entrer le prix d'achat", min_value=10000)
                               sale_price_prev_input=st.number_input("Entrer le prix de vente prévisionnel", min_value=10000)
+                              exchange_input=st.number_input("Taux de change", value=exchangerate)
                               marge_input=st.number_input("marge", min_value=0)
                               fret_input=st.number_input("Entrer le prix du fret", min_value=1000)
                               statuts_input=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"], index=0) 
@@ -82,6 +84,7 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                                              sale_price_final_input,
                                              fret_input,reparations,
                                              marge_input,
+                                             exchange_input,
                                             statuts_input
 
                                             )

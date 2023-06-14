@@ -7,12 +7,12 @@ DETA_KEY="a0awy5axjcn_kq6uEzReYznKn68FiTRJWfnFEJWPKk95"
 
 deta=Deta(DETA_KEY)
 
-def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere,currday):
+def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere, exchangerate, currday):
 
     db = deta.Base(basename)
-    db.put({"key":key, "Fabricant":manufacturer, "Modele":model, "Date sortie":modeldate, "Montant Enchere":enchere, "Date Enchere":currday})
+    db.put({"key":key, "Fabricant":manufacturer, "Modele":model, "Date sortie":modeldate, "Montant Enchere":enchere, "Taux de Change":exchangerate,"Date Enchere":currday})
 
-def insert_datastock(basename,key, manufacturer, model, modeldate,buydate,buyprice,transp,salepriceprev,salepriceend,fret,repair,marge,statut):
+def insert_datastock(basename,key, manufacturer, model, modeldate,buydate,buyprice,transp,salepriceprev,salepriceend,fret,repair,marge, exchange,statut):
 
     db = deta.Base(basename)
     
@@ -25,6 +25,7 @@ def insert_datastock(basename,key, manufacturer, model, modeldate,buydate,buypri
               "frais transport":transp,
               "fret":fret,
               "marge":marge,
+              "Taux de change":exchange,
               "prix achat":buyprice, 
               "prix de vente previsionnel":salepriceprev, 
               "prix de vente final":salepriceend,
@@ -62,7 +63,7 @@ def fetch_data(basename):
     data=db.fetch()
     return data.items
 
-def update_db(basename, keyval, fab, mod, ds, da, tf, ft, pa, pvf, pvp, rp, mg,stt):
+def update_db(basename, keyval, fab, mod, ds, da, tf, ft, pa, pvf, pvp, rp, exr, mg,stt):
 
     db=deta.Base(basename)
     updates={"Fabricant":fab,
@@ -74,7 +75,8 @@ def update_db(basename, keyval, fab, mod, ds, da, tf, ft, pa, pvf, pvp, rp, mg,s
             "prix achat":pa,
             "prix de vente previsionnel":pvp,
             "prix de vente final":pvf,  
-            "reparations":rp, 
+            "reparations":rp,
+            "Taux de change":exr, 
             "marge":mg,         
             "statut":stt,
             }

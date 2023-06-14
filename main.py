@@ -66,11 +66,11 @@ def main():
         # Option qui permet de rajouter chaque nouvelle achat au stock. Il génère une base de données Stock qui sera ensuite remplie
         #avec les infos du véhicule et des montants prévisionnels pour la vente le fret, etc.
 
-        Menu_AjoutNouvelAchat.menu_ajout_nouvel_achat(Options_Menu,user1,ctkeystr)        
+        Menu_AjoutNouvelAchat.menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr)        
     
         # Option pour mettre à jour les informations des véhicules en stock, notamment suite à une vente ou une arrivée de véhicule
 
-        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",user1) 
+        Menu_MajStatutParc.menu_maj_statut_parc(Options_Menu,"Stock",user1,exchangerate) 
 
        #Option pour calculer la marge générée par véhicule 
 

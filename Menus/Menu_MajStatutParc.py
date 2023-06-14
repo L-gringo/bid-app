@@ -3,7 +3,7 @@ from streamlitdemo.database import  update_db
 from streamlitdemo.pandastest import select_affichage_func
 
 
-def menu_maj_statut_parc(Options_Menu,basename,user1):
+def menu_maj_statut_parc(Options_Menu,basename,user1,exchangerate):
     if Options_Menu=="MAJ Statut Parc":
 
             #st.title("MAJ Statut Parc")
@@ -36,7 +36,8 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     buy_date1=st.text_input("Entrer la date d'achat",value= frame.iloc[indice]["date achat"])
                     buy_price_input1=st.number_input("Entrer le prix d'achat", value= frame.iloc[indice]["prix achat"],min_value=10000)
                     sale_price_prev_input1=st.number_input("Entrer le prix de vente prévisionnel", value= frame.iloc[indice]["prix de vente previsionnel"], min_value=10000)
-                    fret_input1=st.number_input("Entrer le prix du fret", value= frame.iloc[indice]["fret"], min_value=1000)
+                    fret_input1=st.number_input("Entrer le prix du fret", value= frame.iloc[indice]["fret"], min_value=0)
+                    exchange_input=st.number_input("Taux de change", value=exchangerate)
                     town1=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
                     transpfees1=user1.transportfees(town1)
                     marge_input1=st.number_input("marge", min_value=0)
@@ -60,6 +61,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                                     sale_price_final_input1, 
                                     sale_price_prev_input1,
                                     reparations1,
+                                    exchange_input,
                                     marge_input1, 
                                     statuts_input1,)
                         st.write("entrée mise a jour")
