@@ -1,8 +1,13 @@
 import streamlit as st
+from deta import Deta
 import pandas as pd
 import numpy as np 
 from streamlitdemo.database import fetch_data
 #import streamlit_pandas as sp
+
+DETA_KEY="a0awy5axjcn_kq6uEzReYznKn68FiTRJWfnFEJWPKk95"
+
+deta=Deta(DETA_KEY)
 
 def load_data(path):
    # df=pd.read_csv("C:\\Users\\ma79caen\\Documents\\vscodetest\\.venv\\streamlitdemo\\Historicenchere.csv")
@@ -61,3 +66,8 @@ def dataframe(basename):
      return df
 
 
+def list_towns(basename):
+
+    db=deta.Base(basename)
+    towns=dataframe(db)
+    return list(towns["Ville"])

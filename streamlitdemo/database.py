@@ -2,7 +2,7 @@ from deta import Deta
 import datetime
 import streamlit_authenticator as stauth
 from streamlitdemo.generatecsv import gencsv
-from streamlitdemo.pandastest import dataframe
+#from streamlitdemo.pandastest import dataframe
 
 DETA_KEY="a0awy5axjcn_kq6uEzReYznKn68FiTRJWfnFEJWPKk95"
 
@@ -123,9 +123,5 @@ def db_items_list(basename):
         transpdict[town["Ville"]]=town["Prix"]
     
     return transpdict
-  
-def list_towns(basename):
 
-    db=deta.Base(basename)
-    towns=dataframe(db)
-    return list(towns["Ville"])
+
