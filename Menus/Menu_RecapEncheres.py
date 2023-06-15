@@ -1,7 +1,8 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 from streamlitdemo.pandastest import  select_affichage_func
-from streamlitdemo.database import delete_items, insert_datastock,list_towns
+from streamlitdemo.database import delete_items, insert_datastock
+from streamlitdemo.pandastest import list_towns
 
 
 def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):

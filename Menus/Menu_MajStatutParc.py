@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlitdemo.database import  update_db, list_towns
+from streamlitdemo.database import  update_db
+from streamlitdemo.pandastest import list_towns
 from streamlitdemo.pandastest import select_affichage_func
 from calculenchere.calculenchere import calcul_marge
 

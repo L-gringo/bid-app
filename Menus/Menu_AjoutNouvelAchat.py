@@ -1,5 +1,6 @@
 import streamlit as st
-from streamlitdemo.database import insert_datastock, list_towns
+from streamlitdemo.database import insert_datastock
+from streamlitdemo.pandastest import list_towns
 
 def menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr):
 

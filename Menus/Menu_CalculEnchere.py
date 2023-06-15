@@ -1,7 +1,8 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 from calculenchere.calculenchere import calcul_enchere
-from streamlitdemo.database import  insert_dataenchere,list_towns
+from streamlitdemo.database import  insert_dataenchere
+from streamlitdemo.pandastest import list_towns
 
 def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
        
