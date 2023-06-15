@@ -116,8 +116,7 @@ def delete_items(basename, keyval):
     
 def db_items_list(basename):
 
-    db=deta.Base(basename)
-    towns=fetch_data(db)
+    towns=fetch_data(basename)
     transpdict={}
     for town in towns:
         transpdict[town["Ville"]]=town["Prix"]
