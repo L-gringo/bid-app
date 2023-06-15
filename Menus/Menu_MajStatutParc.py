@@ -58,8 +58,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
 
                             marge= calcul_marge(sale_price_final_input1,transpfees1,fret_input1,reparations1,taxes_input,storage_input,salary_input, exchange_input)
-                            insert_marge_base("Marges", val1, model_Manufacturer_input1, model_Name_input1, modele_year_input1, buy_date1, buy_price_input1, sale_price_final_input1, marge)
-                       # update_marge("Stock",value1,marge)
+                            # update_marge("Stock",value1,marge)
                             update_db("Stock", 
                                         val1, 
                                         model_Manufacturer_input1, 
@@ -76,6 +75,8 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                                         exchange_input,
                                         marge, 
                                         statuts_input1,)
+                            insert_marge_base("Marges", val1, model_Manufacturer_input1, model_Name_input1, modele_year_input1, buy_date1, buy_price_input1, sale_price_final_input1, marge)
+
                             st.write("entrée mise a jour")
 
                             st.session_state.MAJ=False
