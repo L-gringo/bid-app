@@ -44,3 +44,4 @@ def menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr):
                                         exchange_input,
                                         statuts_input,
                                         )
+                    st.write("Modele ajouté au Stock")
