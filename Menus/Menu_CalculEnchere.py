@@ -1,7 +1,7 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 from calculenchere.calculenchere import calcul_enchere
-from streamlitdemo.database import  insert_dataenchere
+from streamlitdemo.database import  insert_dataenchere,list_towns
 
 def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
        
@@ -22,7 +22,7 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                 reparation=st.number_input("Montant estimé de réparations",min_value=0)
                     
                 #Etat d'origine du véhicule pour le transport
-                town=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
+                town=st.selectbox("Selectionner la ville d'origine du véhicule :",list_towns("Transports"))
                 transpfees=user1.transportfees(town)
 
                 #Devises cibles pour le change  

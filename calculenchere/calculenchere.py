@@ -6,7 +6,7 @@ def calcul_enchere(sellprice,profit,transport,fret,repair,exchangerate):
     enchere= sellprice - transport*exchangerate - (profit+repair+fret)
     return enchere*exchangerate*EUR_CFA
 
-def calcul_marge(sellprice, transport, fret, repair, exchangerate):
+def calcul_marge(sellprice, transport, fret, repair, taxes, storage, salary,exchangerate):
     EUR_CFA=657.01
-    profit= sellprice - transport*exchangerate - (repair + fret)
-    return profit*exchangerate*EUR_CFA
+    profit= sellprice - (transport+storage)*exchangerate - repair - fret*exchangerate - taxes - salary
+    return profit

@@ -13,7 +13,6 @@ import pandas as pd
 def main():
      
      #Mes variables globales
-
     ct=datetime.datetime.now()
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 

@@ -1,9 +1,10 @@
 import streamlit as st
-from streamlitdemo.database import  update_db
+from streamlitdemo.database import  update_db, list_towns
 from streamlitdemo.pandastest import select_affichage_func
+from calculenchere.calculenchere import calcul_marge
 
 
-def menu_maj_statut_parc(Options_Menu,basename,user1):
+def menu_maj_statut_parc(Options_Menu,basename,transplist,user1):
     if Options_Menu=="MAJ Statut Parc":
 
             #st.title("MAJ Statut Parc")
@@ -27,7 +28,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                 frame=dataframe_edit[0]
                 indice=dataframe_edit[1][0]
                 value=frame.iloc[indice]["key"]
-
+                
                 with st.form(key="form3"):
 
                     model_Manufacturer_input1=st.text_input("Entrer le nom du fabricant :",value=frame.iloc[indice]["Fabricant"])
@@ -39,9 +40,12 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     fret_input1=st.number_input("Entrer le prix du fret", value= frame.iloc[indice]["fret"], min_value=0)
                     exchange_input=st.number_input("Taux de change", value=frame.iloc[indice]["Taux de change"])
                     sell_date_input=st.text_input("Date de vente",value=frame.iloc[indice]["date vente"])
-                    town1=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
+                    town1=st.selectbox("Selectionner la ville d'origine du véhicule :",list_towns("Transports"))
                     transpfees1=user1.transportfees(town1)
                     marge_input1=st.number_input("marge", min_value=0)
+                    storage_input=st.number_input("stockage", min_value=0)
+                    taxes_input=st.selectbox("Impôts :" ["+10 ans":48000, "5 à 10 ans":78000, "Moins de 5 ans":145000])
+                    salary_input=st.number_input("Frais vendeur", value=50000)
                     statuts_input1=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"]) 
                     sale_price_final_input1=st.number_input("Entrer le prix de vente final", min_value=10000)
                     reparations1=st.number_input("Montant des réparations",value= frame.iloc[indice]["reparations"],min_value=0)
@@ -49,23 +53,51 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     button=st.form_submit_button("Validez")
                     
                     if button:
+                        
+                        if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
 
-                        update_db("Stock", 
-                                    val1, 
-                                    model_Manufacturer_input1, 
-                                    model_Name_input1, 
-                                    modele_year_input1,
-                                    buy_date1,
-                                    sell_date_input, 
-                                    transpfees1, 
-                                    fret_input1,
-                                    buy_price_input1,
-                                    sale_price_final_input1, 
-                                    sale_price_prev_input1,
-                                    reparations1,
-                                    exchange_input,
-                                    marge_input1, 
-                                    statuts_input1,)
-                        st.write("entrée mise a jour")
+                            marge= calcul_marge(sale_price_final_input1,transpfees1,fret_input1,reparations1,taxes_input,storage_input,salary_input, exchange_input)
+                       # update_marge("Stock",value1,marge)
+                            update_db("Stock", 
+                                        val1, 
+                                        model_Manufacturer_input1, 
+                                        model_Name_input1, 
+                                        modele_year_input1,
+                                        buy_date1,
+                                        sell_date_input, 
+                                        transpfees1, 
+                                        fret_input1,
+                                        buy_price_input1,
+                                        sale_price_final_input1, 
+                                        sale_price_prev_input1,
+                                        reparations1,
+                                        exchange_input,
+                                        marge, 
+                                        statuts_input1,)
+                            st.write("entrée mise a jour")
 
-                        st.session_state.MAJ=False
+                            st.session_state.MAJ=False
+                        
+                        else:
+                            update_db("Stock", 
+                                        val1, 
+                                        model_Manufacturer_input1, 
+                                        model_Name_input1, 
+                                        modele_year_input1,
+                                        buy_date1,
+                                        sell_date_input, 
+                                        transpfees1, 
+                                        fret_input1,
+                                        buy_price_input1,
+                                        sale_price_final_input1, 
+                                        sale_price_prev_input1,
+                                        reparations1,
+                                        exchange_input,
+                                        marge_input1, 
+                                        statuts_input1,)
+                            st.write("entrée mise a jour")
+                             
+                        
+                            st.write("entrée mise a jour")
+
+                            st.session_state.MAJ=False

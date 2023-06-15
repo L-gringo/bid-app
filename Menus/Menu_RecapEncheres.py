@@ -1,7 +1,7 @@
 import streamlit as st
 #from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
 from streamlitdemo.pandastest import  select_affichage_func
-from streamlitdemo.database import delete_items, insert_datastock
+from streamlitdemo.database import delete_items, insert_datastock,list_towns
 
 
 def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
@@ -58,7 +58,7 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
                               model_year_input=st.number_input("Date sortie",int(line["Date sortie"]))
                               sell_date_input=st.date_input("Date de vente")
                               buy_date=st.date_input("Entrer la date d'achat")
-                              town=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
+                              town=st.selectbox("Selectionner la ville d'origine du véhicule :",list_towns("Transports"))
                               transpfees=user1.transportfees(town)
                               buy_price_input=st.number_input("Entrer le prix d'achat", min_value=10000)
                               sale_price_prev_input=st.number_input("Entrer le prix de vente prévisionnel", min_value=10000)

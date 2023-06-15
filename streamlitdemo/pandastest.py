@@ -54,3 +54,10 @@ def simple_affichage_func(basename):
     df=pd.DataFrame(datas)
     st.dataframe(df)
 
+
+def dataframe(basename):
+     db=fetch_data(basename)
+     df=pd.DataFrame(db)
+     return df
+
+

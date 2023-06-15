@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlitdemo.database import insert_datastock
+from streamlitdemo.database import insert_datastock, list_towns
 
 def menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr):
 
@@ -20,7 +20,7 @@ def menu_ajout_nouvel_achat(Options_Menu,user1,exchangerate,ctkeystr):
                 fret_input=st.number_input("Entrer le prix du fret", min_value=1000)
                 statuts_input=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"], index=0) 
                 sale_price_final_input=st.number_input("Entrer le prix de vente final", min_value=10000)
-                town=st.selectbox("Selectionner la ville d'origine du véhicule :",("Washington","New York","Houston"))
+                town=st.selectbox("Selectionner la ville d'origine du véhicule :",list_towns("Transports"))
                 transpfees=user1.transportfees(town)
                 reparations=st.number_input("Montant estimé de réparations",min_value=0)
                 submit_button1=st.form_submit_button("Ajouter au stock")

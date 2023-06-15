@@ -1,5 +1,7 @@
 #class qui définit un objet utilisateur
 from model.model import model
+from streamlitdemo.database import db_items_list
+
 class user:
     def __init__(self, username):
         
@@ -18,7 +20,8 @@ class user:
             return modele1
     
     def transportfees(self,town):
-        dict_StateTranspFees={"New York": 500, "Houston":800,"Washington":750}
+      #  dict_StateTranspFees={"New York": 500, "Houston":800,"Washington":750}
+        dict_StateTranspFees=db_items_list("Transports")
         for key in dict_StateTranspFees.keys():
             if key==town:
                 print(f"les frais de transport s'élèvent à : {dict_StateTranspFees[key]}")
