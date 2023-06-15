@@ -7,7 +7,8 @@ from streamlitdemo.pandastest import list_towns
 def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
        
     if Options_Menu=="Calcul Enchere":          
-           
+            list=list_towns("Transports")
+            print(list)
             #st.title("Formulaire de calcul des encheres")
             st.markdown("<h1 style='text-align: center; color: grey;'>Calcul Des Encheres</h1>",unsafe_allow_html=True)
             with st.form(key="form1"):
@@ -23,7 +24,8 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                 reparation=st.number_input("Montant estimé de réparations",min_value=0)
                     
                 #Etat d'origine du véhicule pour le transport
-                town=st.selectbox("Selectionner la ville d'origine du véhicule :",list_towns("Transports"))
+                town=st.selectbox("Selectionner la ville d'origine du véhicule :",options=list)
+                
                 transpfees=user1.transportfees(town)
 
                 #Devises cibles pour le change  
