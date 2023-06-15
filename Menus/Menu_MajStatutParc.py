@@ -5,7 +5,7 @@ from streamlitdemo.pandastest import select_affichage_func
 from calculenchere.calculenchere import calcul_marge
 
 
-def menu_maj_statut_parc(Options_Menu,basename,transplist,user1):
+def menu_maj_statut_parc(Options_Menu,basename,user1):
     if Options_Menu=="MAJ Statut Parc":
 
             #st.title("MAJ Statut Parc")
