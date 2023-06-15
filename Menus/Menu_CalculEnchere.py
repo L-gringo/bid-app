@@ -8,7 +8,7 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
        
     if Options_Menu=="Calcul Enchere":          
             list=list_towns("Transports")
-            print(list)
+            st.write(list)
             #st.title("Formulaire de calcul des encheres")
             st.markdown("<h1 style='text-align: center; color: grey;'>Calcul Des Encheres</h1>",unsafe_allow_html=True)
             with st.form(key="form1"):
