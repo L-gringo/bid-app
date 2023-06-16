@@ -49,11 +49,11 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     taxes=taxes_dict[taxes_input]
                     salary_input=st.number_input("Frais vendeur", value=50000)
                     statuts_input1=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"]) 
-                    sale_price_final_input1=st.number_input("Entrer le prix de vente final", min_value=10000)
+                    sale_price_final_input1=st.number_input("Entrer le prix de vente final")
                     reparations1=st.number_input("Montant des réparations",value= frame.iloc[indice]["reparations"],min_value=0)
                     val1=value
                     button=st.form_submit_button("Validez")
-                    st.write(taxes_input)
+                    
                     if button:
                         
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
@@ -78,7 +78,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                                         statuts_input1,)
                             insert_marge_base("Marges", val1, model_Manufacturer_input1, model_Name_input1, modele_year_input1, buy_date1, buy_price_input1, sale_price_final_input1, marge)
 
-                            st.write("entrée mise a jour")
+                            st.write("entrée mise a jour et marge générée")
 
                             st.session_state.MAJ=False
                         

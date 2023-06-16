@@ -13,7 +13,7 @@ import pandas as pd
 def main():
      
      #Mes variables globales
-     
+
     ct=datetime.datetime.now()
     ctkeystr=ct.strftime("%Y-%m-%d-%H-%M-%S")
     ctstr=ct.strftime("%d %B  %Y") 
@@ -50,8 +50,8 @@ def main():
             st.header (f"Bienvenue {name}")
 
             Options_Menu= option_menu(menu_title=None, 
-                         options=["Calcul Enchere", "Ajout Nouvel Achat","Recap Encheres","MAJ Statut Parc", "Generer Marge","Recap Des Marges", "Frais Transport","Stock Parc"],
-                         icons=["calculator","cart-plus","table","check-all","coin","currency-dollar","truck","database-fill"],
+                         options=["Calcul Enchere", "Ajout Nouvel Achat","Recap Encheres","MAJ Statut Parc","Recap Des Marges", "Frais Transport","Stock Parc"],
+                         icons=["calculator","cart-plus","table","check-all","coin","truck","database-fill"],
                          default_index=0,
                          orientation="vertical")
         
@@ -74,7 +74,7 @@ def main():
 
        #Option pour calculer la marge générée par véhicule 
 
-        Menu_Generermarge.menu_generer_marge(Options_Menu,"Stock",exchangerate)
+       # Menu_Generermarge.menu_generer_marge(Options_Menu,"Stock",exchangerate)
            
             # Actions pour afficher le récap des marges calculées et effectuer des sommes de marges
 
