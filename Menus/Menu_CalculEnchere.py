@@ -23,7 +23,7 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                 reparation=st.number_input("Montant estimé de réparations",min_value=0)
                     
                 #Etat d'origine du véhicule pour le transport
-                town=st.selectbox("Selectionner la ville d'origine du véhicule :",options=list)
+                town=st.selectbox("Selectionner la ville d'origine du véhicule :",options=list,index=0)
                 
                 transpfees=user1.transportfees(town)
 
