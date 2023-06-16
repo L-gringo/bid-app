@@ -52,7 +52,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     reparations1=st.number_input("Montant des réparations",value= frame.iloc[indice]["reparations"],min_value=0)
                     val1=value
                     button=st.form_submit_button("Validez")
-                    st.write(transpfees1)
+                    st.write(taxes_input)
                     if button:
                         
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
