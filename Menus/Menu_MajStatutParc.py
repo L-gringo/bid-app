@@ -25,7 +25,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
             update_button=st.button("Mettre a jour",on_click=callback)
 
             if update_button or st.session_state.MAJ:
-
+                taxes_dict= {"+10 ans":48000, "5 à 10 ans":78000, "Moins de 5 ans":145000}
                 frame=dataframe_edit[0]
                 indice=dataframe_edit[1][0]
                 value=frame.iloc[indice]["key"]
@@ -46,6 +46,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     marge_input1=st.number_input("marge", min_value=0)
                     storage_input=st.number_input("stockage", min_value=0)
                     taxes_input=st.selectbox("Impôts :", {"+10 ans":48000, "5 à 10 ans":78000, "Moins de 5 ans":145000})
+                    taxes=taxes_dict[taxes_input]
                     salary_input=st.number_input("Frais vendeur", value=50000)
                     statuts_input1=st.selectbox("Satut",["En stock","Vendu","Concessionnaire","Port de depart","Bateau","Port arrivee","En location"]) 
                     sale_price_final_input1=st.number_input("Entrer le prix de vente final", min_value=10000)
@@ -57,7 +58,7 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                         
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
 
-                            marge= calcul_marge(sale_price_final_input1,transpfees1,fret_input1,reparations1,taxes_input,storage_input,salary_input, exchange_input)
+                            marge= calcul_marge(sale_price_final_input1,transpfees1,fret_input1,reparations1,taxes,storage_input,salary_input, exchange_input)
                             # update_marge("Stock",value1,marge)
                             update_db("Stock", 
                                         val1, 
