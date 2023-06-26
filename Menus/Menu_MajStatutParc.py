@@ -15,9 +15,12 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
             
             if "MAJ" not in st.session_state:
                 st.session_state.MAJ=False
-
+            
             def callback():
                 st.session_state.MAJ=True
+            
+            global bool_var 
+            bool_var= False
 
             # génère un fichier csv en guise de dataset pour l'affichage du tableau
             dataframe_edit=select_affichage_func(basename)
@@ -56,11 +59,13 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     
                     if button:
                         
-                        while(statuts_input1=="Vendu") and (sale_price_final_input1 == 0):
-                            st.write("Vous avez changer le statut à Vendu sans indiquer le prix de vente. Merci de renseigner un prix de vente supérieur à zéro")
+                        if (statuts_input1=="Vendu") and (sale_price_final_input1 == 0):
+                            st.write("Vous avez changer le statut à Vendu sans indiquer le prix de vente.")
+                            bool_var=True
                         
-                        while(sale_price_final_input1 != 0 ) and (statuts_input1 !="Vendu"):
-                            st.write("Vous avez indiquer le prix de vente sans modifier le statut. Merci de mettre le statut à Vendu")
+                        if (sale_price_final_input1 != 0 ) and (statuts_input1 !="Vendu"):
+                            st.write("Vous avez indiquer le prix de vente sans modifier le statut.")
+                            bool_var=True
 
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
 
@@ -89,25 +94,27 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                             st.session_state.MAJ=False
                         
                         else:
-                            update_db("Stock", 
-                                        val1, 
-                                        model_Manufacturer_input1, 
-                                        model_Name_input1, 
-                                        modele_year_input1,
-                                        buy_date1,
-                                        sell_date_input, 
-                                        transpfees1, 
-                                        fret_input1,
-                                        buy_price_input1,
-                                        sale_price_final_input1, 
-                                        sale_price_prev_input1,
-                                        reparations1,
-                                        exchange_input,
-                                        marge_input1, 
-                                        statuts_input1,)
-                            st.write("entrée mise a jour")
-                             
-                        
-                            st.write("entrée mise a jour")
+                            if bool_var:
+                                st.write("Le statut du modèle ne peut être à Vendu si le prix de vente est 0... et vice versa. Merci de vérifier que les deux champs sont cohérents")
+                            else:
+                                bool_var=False
+                                update_db("Stock", 
+                                            val1, 
+                                            model_Manufacturer_input1, 
+                                            model_Name_input1, 
+                                            modele_year_input1,
+                                            buy_date1,
+                                            sell_date_input, 
+                                            transpfees1, 
+                                            fret_input1,
+                                            buy_price_input1,
+                                            sale_price_final_input1, 
+                                            sale_price_prev_input1,
+                                            reparations1,
+                                            exchange_input,
+                                            marge_input1, 
+                                            statuts_input1,)
+                                st.write("entrée mise a jour")
+                
 
-                            st.session_state.MAJ=False
+                        st.session_state.MAJ=False

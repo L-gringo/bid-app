@@ -11,5 +11,3 @@ def calcul_marge(sellprice, transport, fret, repair, taxes, storage, salary,exch
     profit= sellprice - (transport+storage)*exchangerate - repair - fret*exchangerate - taxes - salary
     return profit
 
-enchere=calcul_enchere(5000000,350000,750,100,10000,49,48000,50000,601.38)
-print (enchere)
