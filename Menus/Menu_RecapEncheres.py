@@ -26,10 +26,12 @@ def menu_recap_encheres(Options_Menu,basename,user1,ctkeystr):
 
 
             dataframe_edit=select_affichage_func(basename)
+            col1,col2=st.columns([1,1])
+            with col1:
+                 supp_button= st.button("Supprimer")
             
-            supp_button= st.button("Supprimer")
-            
-            add_stock_button=st.button("Ajouter au Stock", on_click=callback)
+            with col2:
+                add_stock_button=st.button("Ajouter au Stock", on_click=callback)
 
             if supp_button:
                 
