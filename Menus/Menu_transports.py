@@ -31,7 +31,7 @@ def menu_transports(Options_menu, basename,ctkeystr):
 
         dataframe_edit=select_affichage_func(basename)
 
-        col1,col2,col3=st.columns(1,1,1)
+        col1,col2,col3=st.columns([1,1,1])
 
         with col1:
             add_button=st.button("Ajouter une ville", on_click=callback)
