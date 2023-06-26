@@ -21,7 +21,8 @@ def get_exchange_rate(target_currency):
     
     response=requests.get(f"https://api.currencylayer.com/{endpoint}?access_key={os.getenv('api_key')}&currencies={currencies}")
     data=response.json()
-    return data["quotes"]["USDXOF"]
+    #return data["quotes"]["USDXOF"]
+    return data['quotes']
 
 #value=get_exchange_rate("XOF")
 #print(value)
