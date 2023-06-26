@@ -23,5 +23,5 @@ def get_exchange_rate(target_currency):
     data=response.json()
     return data["quotes"]["USDXOF"]
 
-value=get_exchange_rate("XOF")
-print(value)
+#value=get_exchange_rate("XOF")
+#print(value)

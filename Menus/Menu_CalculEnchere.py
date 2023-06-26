@@ -15,13 +15,13 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                 model_Manufacturer_input=st.text_input("Entrer le nom du fabricant :")
                 model_Name_input=st.text_input("Entrer le nom du modèle :")
                 modele_year_input=st.number_input("Entrer l'année de sortie du modèle :", min_value=0)
-                sale_price_input=st.number_input("Entrer le prix de vente", min_value=10000)
+                sale_price_input=st.number_input("Entrer le prix de vente", min_value=0)
                 exchange_input=st.number_input("Taux de change", value=exchangerate)
                 storage_input=st.number_input("stockage", min_value=0)
                 taxes_input=st.selectbox("Impôts :", {"+10 ans":48000, "5 à 10 ans":78000, "Moins de 5 ans":145000}, index=0)
                 taxes=taxes_dict[taxes_input]
                 salary_input=st.number_input("Frais vendeur", value=50000)
-                fret_input=st.number_input("Entrer le prix du fret", min_value=1000)
+                fret_input=st.number_input("Entrer le prix du fret", min_value=0)
                 profits_input=st.number_input("Entrer la marge visée",min_value=0)
 
                 #frais de réparations
@@ -51,7 +51,8 @@ def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
                     
                     st.markdown(f"le taux de change {currencies[0]}/{currencies[1]} est actuellement de : {exchangerate}")
                     #calcul la valeur de l'enchère e
-                    value=calcul_enchere(modele.sellprice,modele.profit,transpfees,modele.fret,repfees,storage_input,taxes,salary_input,exchange_input)
+                    #value=calcul_enchere(modele.sellprice,modele.profit,transpfees,modele.fret,repfees,storage_input,taxes,salary_input,exchange_input)
+                    value=calcul_enchere(sale_price_input,profits_input,transpfees,fret_input,reparation,storage_input,taxes,salary_input,exchange_input)
 
                     st.markdown(f"la valeur maximale de cette enchère pour ce modèle {modele.name} {modele.year} est de : {value} dollars")
         
