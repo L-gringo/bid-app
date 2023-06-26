@@ -6,8 +6,8 @@ from streamlitdemo.generatecsv import gencsv
 #from streamlitdemo.pandastest import dataframe
 
 
-Deta_KEY=st.secrets["val"]
-deta=Deta("DETA_KEY")
+#Deta_KEY=st.secrets["val"]
+deta=Deta(st.secrets["val"])
 
 def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere, exchangerate, currday):
 
