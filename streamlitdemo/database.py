@@ -1,12 +1,13 @@
 from deta import Deta
 import datetime
+import streamlit as st
 import streamlit_authenticator as stauth
 from streamlitdemo.generatecsv import gencsv
 #from streamlitdemo.pandastest import dataframe
 
-DETA_KEY="a0awy5axjcn_kq6uEzReYznKn68FiTRJWfnFEJWPKk95"
 
-deta=Deta(DETA_KEY)
+Deta_KEY=st.secrets["DETA"]
+deta=Deta("DETA_KEY")
 
 def insert_dataenchere(basename,key, manufacturer, model, modeldate,enchere, exchangerate, currday):
 
