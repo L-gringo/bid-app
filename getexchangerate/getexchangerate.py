@@ -3,6 +3,8 @@ import requests
 from forex_python.converter import CurrencyRates
 from dotenv import load_dotenv
 import os
+import streamlit as st
+
 
 def get_exchange(base_currency, target_currency):
     c = CurrencyRates()
@@ -16,13 +18,15 @@ def get_exchange(base_currency, target_currency):
 def get_exchange_rate(target_currency):
 
     load_dotenv()
+    key=st.secrets["api"]
     currencies=target_currency
     endpoint="live"
     
-    response=requests.get(f"https://api.currencylayer.com/{endpoint}?access_key={os.getenv('api_key')}&currencies={currencies}")
+    #response=requests.get(f"https://api.currencylayer.com/{endpoint}?access_key={os.getenv('api_key')}&currencies={currencies}")
+    response=requests.get(f"https://api.currencylayer.com/{endpoint}?access_key={key}&currencies={currencies}")    
     data=response.json()
-    #return data["quotes"]["USDXOF"]
-    return data
+    return data["quotes"]["USDXOF"]
+    
 
 #value=get_exchange_rate("XOF")
 #print(value)

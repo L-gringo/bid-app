@@ -5,7 +5,7 @@ from streamlitdemo.database import  insert_dataenchere
 from streamlitdemo.pandastest import list_towns
 
 def menu_calcul_enchere(Options_Menu,user1,exchangerate,ctkeystr,ctstr):
-    st.write(exchangerate)
+    
     if Options_Menu=="Calcul Enchere":          
             list=list_towns("Transports")
             taxes_dict= {"+10 ans":48000, "5 à 10 ans":78000, "Moins de 5 ans":145000}
