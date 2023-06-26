@@ -1,7 +1,10 @@
 #fonction qui récupère le taux de change
+import requests
 from forex_python.converter import CurrencyRates
+from dotenv import load_dotenv
+import os
 
-def get_exchange_rate(base_currency, target_currency):
+def get_exchange(base_currency, target_currency):
     c = CurrencyRates()
     try:
         exchange_rate = c.get_rate(base_currency, target_currency)
@@ -10,3 +13,15 @@ def get_exchange_rate(base_currency, target_currency):
         raise error
     return exchange_rate
 
+def get_exchange_rate(target_currency):
+
+    load_dotenv()
+    currencies=target_currency
+    endpoint="live"
+    
+    response=requests.get(f"https://api.currencylayer.com/{endpoint}?access_key={os.getenv('api_key')}&currencies={currencies}")
+    data=response.json()
+    return data["quotes"]["USDXOF"]
+
+value=get_exchange_rate("XOF")
+print(value)

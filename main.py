@@ -1,8 +1,7 @@
 import streamlit_authenticator as stauth
 import streamlit as st
-#import bidapp.user.user
 from user.user import user
-#from CalculEnchere.getexchangerate.getexchangerate import get_exchange_rate
+from getexchangerate.getexchangerate import get_exchange_rate
 from Connector.connector import connect
 import datetime
 from streamlit_option_menu import option_menu
@@ -20,7 +19,7 @@ def main():
     credentials= connect("Credentials")
    
     
-    exchangerate=0.932
+    exchangerate=get_exchange_rate("XOF")
 
     #Authentification à l'appli
     authenticator= stauth.Authenticate(credentials, "cookies", "abcdef", cookie_expiry_days=7)

@@ -56,6 +56,12 @@ def menu_maj_statut_parc(Options_Menu,basename,user1):
                     
                     if button:
                         
+                        while(statuts_input1=="Vendu") and (sale_price_final_input1 == 0):
+                            st.write("Vous avez changer le statut à Vendu sans indiquer le prix de vente. Merci de renseigner un prix de vente supérieur à zéro")
+                        
+                        while(sale_price_final_input1 != 0 ) and (statuts_input1 !="Vendu"):
+                            st.write("Vous avez indiquer le prix de vente sans modifier le statut. Merci de mettre le statut à Vendu")
+
                         if (sale_price_final_input1 != 0 ) and (statuts_input1=="Vendu"):
 
                             marge= calcul_marge(sale_price_final_input1,transpfees1,fret_input1,reparations1,taxes,storage_input,salary_input, exchange_input)
